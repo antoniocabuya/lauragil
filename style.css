@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Lobster', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: rgb(148,187,233); */
+    /* background: linear-gradient(90deg, rgba(148,187,233,0.9220063025210083) 80%, rgba(174,238,201,0.35898109243697474) 100%); */
+    background: url("fondo.jpg");
+    background-size: cover;
+}
+.logo{
+    position: absolute;
+    top:1em;
+    width: 11em;
+}
+.nomb{
+    position: absolute;
+    top: 5.1em;
+    font-size: 5em;
+    color: #73472d;
+}
+.box{
+    position:absolute;
+    width: 160px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+    top: 12em;
+}
+@keyframes animate{
+    0%{
+        /* transform: perspective(1000px) rotateX(0deg) rotateY(35deg); */
+        transform: perspective(20000px) rotateY(360deg);
+    }
+    100%{
+        /* transform: perspective(1000px) rotateX(360deg) rotateY(35deg); */
+        transform: perspective(20000px) rotateY(0deg);
+    }
+}
+.box span{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 20deg)) translateZ(500px);
+}
+.box span img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+.container{
+    position: absolute;
+    top:32em;
+    /* max-width: 1000px; */
+    /* margin: 100px auto; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    /* width:87em; */
+    cursor:pointer;
+ }
+.card{
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 30%;
+    text-align: center;
+    position: relative; /* Necesario para el posicionamiento interno */
+    overflow: hidden; /* Para ocultar el desbordamiento */
+    display: flex;
+    flex-direction: column;
+}
+.card h2{
+    font-size: 2em;
+    letter-spacing: 4px;
+}
+.container p{
+    position: absolute;
+    font-size:3em;
+}
+
+.container .card {
+    margin-top: 9em;
+    width: 400px;
+    /* height: 400px; */
+    height: 33em;
+}
+.front img{
+    border: 2px solid #333; /* Borde de 2px de grosor y color oscuro */
+    border-radius: 10px; /* Esquinas redondeadas (opcional) */
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: box-shadow 0.3s; /* Animación al cambiar la sombra */
+}
+.back{
+    display: flex; /* Usar flex para el contenido interno */
+    flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    padding: 20px; /* Espacio interno */
+    box-sizing: border-box; /* Incluye padding en el ancho y alto total */
+    height: 100%; /* Ocupar todo el espacio vertical */
+}
+.back p {
+    margin: 0; /* Elimina márgenes predeterminados */
+    text-align: center; /* Centra el texto */
+    width: 100%; /* Asegura que ocupen todo el ancho */
+}
+.input-container {
+    margin-top: 20px; /* Espacio encima del input */
+    text-align: center; /* Centra el contenido del contenedor */
+    z-index: 10;
+}
+
+.input-container input {
+    width: 20%; /* Ancho del input */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Esquinas redondeadas del input */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    font-size: 16px; /* Tamaño de la fuente */
+}
+
+
+
+@media (width <= 1250px) {
+    /* body { */
+    /*     background: url("logo.webp"); */
+    /* } */
+    .card{
+        flex: 1 1 100%;
+    }
+    .container .card {
+        margin-top: 0;
+     }
+    .container p{
+        position: relative;
+    }
+}
