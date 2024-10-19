@@ -137,9 +137,12 @@ body{
     width: 100%; /* Asegura que ocupen todo el ancho */
 }
 .input-container {
-    margin-top: 20px; /* Espacio encima del input */
+    /* margin-top: 20px; /* Espacio encima del input */ */
     text-align: center; /* Centra el contenido del contenedor */
     z-index: 10;
+    position: relative;
+    top: 0.4em;
+    font-size: 2em;
 }
 
 .input-container input {
@@ -168,7 +171,7 @@ button {
   border-radius: 10px;
   width: 60%;
   position: absolute;
-  top: 46em;
+  top: 47em;
   left: 24%;
   margin-bottom: 5em;
 }
