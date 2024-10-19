@@ -4,6 +4,42 @@
     <meta charset="utf-8">
     <title>Mis quince Laura Sofia</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="efec.js"></script>
+    <script src="jquery.flip.min.js"></script>
+    <script>
+
+    function enviarDatos() {
+            const nombre = document.getElementById('nombre').value;
+            const costillas = document.getElementById('costillas').value;
+            const arroz = document.getElementById('arroz').value;
+            const pasta = document.getElementById('pasta').value;
+            if (!nombre){
+            alert("Por favor, Digita el nombre");
+            return;
+        }
+        if (!costillas && !arroz && !pasta){
+            alert('Por favor selecciona los platos que deseas');
+            return;
+        }
+            const url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScUrw0u_gytBxG_rqGLobTZtGjz8YeRlyRyi-_00pNOqSEY7A/formResponse'; // Reemplaza con tu ID
+
+            const data = new FormData();
+            data.append('entry.1740459719', nombre); // Reemplaza 'entry.123456789' con el ID del campo
+            data.append('entry.1047440750', costillas);  // Reemplaza 'entry.987654321' con el ID del campo
+            data.append('entry.675222338', arroz);
+            data.append('entry.2050867841', pasta);
+            fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: data,
+            }).then(() => {
+                alert('Datos enviados Gracias te esperamos !' );
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </head>
 <body>
         <img class="logo" src="logo.png">
@@ -49,7 +85,7 @@
                 </div>
                <div class="input-container">
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" name="cantidad" min="1" required>
+                    <input type="number" id="costillas" name="cantidad" min="1" required>
                 </div>
             </div>
             <div class="card">
@@ -62,7 +98,7 @@
                 </div>
                <div class="input-container">
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" name="cantidad" min="1" required>
+                    <input type="number" id="arroz" name="cantidad" min="1" required>
                 </div>
             </div>
             <div class="card">
@@ -75,20 +111,17 @@
                 </div>
                <div class="input-container">
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" name="cantidad" min="1" required>
+                    <input type="number" id="pasta" name="cantidad" min="1" required>
                 </div>
             </div>
             <div class="form-container">
-                <h2>Ingrese tu nombre</h2>
+                <h2>Ingrese su nombre</h2>
                 <div>
                     <label for="nombre" style="font-size: 3em;">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
                 </div>
-                <button id="submit">Enviar</button>
+                <button onclick="enviarDatos()" id="submit">Enviar</button>
             </div>
         </div>
 </body>
-    <script src="jquery-2.1.4.min.js"></script>
-    <script src="jquery.flip.min.js"></script>
-    <script src="efec.js"></script>
 </html>
