@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Lobster', sans-serif;
+    font-family: 'Satisfy', cursive;
 }
 body{
     display: flex;
@@ -91,10 +91,15 @@ body{
 .container p{
     position: absolute;
     font-size:3em;
+    text-align: center;
+}
+.container p strong{
+    position: relative;
+    right: 7.5em;
 }
 
 .container .card {
-    margin-top: 9em;
+    margin-top: 13em;
     width: 400px;
     /* height: 400px; */
     height: 33em;
@@ -149,5 +154,9 @@ body{
      }
     .container p{
         position: relative;
+    }
+    .container p strong{
+        position: relative;
+        right: 6.3em;
     }
 }
