@@ -35,6 +35,10 @@
                 body: data,
             }).then(() => {
                 alert('Datos enviados Gracias te esperamos !' );
+                document.getElementById('nombre').value="";
+                document.getElementById('costillas').value="0";
+                document.getElementById('arroz').value="0";
+                document.getElementById('pasta').value="0";
             }).catch((error) => {
                 console.error('Error:', error);
             });
