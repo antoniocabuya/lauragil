@@ -12,8 +12,16 @@ body{
     min-height: 100vh;
     /* background: rgb(148,187,233); */
     /* background: linear-gradient(90deg, rgba(148,187,233,0.9220063025210083) 80%, rgba(174,238,201,0.35898109243697474) 100%); */
-    background: url("fondo.jpg");
-    background-size: cover;
+    /* background: url("fondo.jpg"); */
+    /* background-size: cover; */
+    background-image: url('fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Fija la imagen al fondo */
+    height: 100%; /* Asegúrate de que el contenedor ocupe el 100% de la altura */
+    display: flex; /* Usar flex para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
 }
 .logo{
     position: absolute;
@@ -119,6 +127,9 @@ body{
     padding: 20px; /* Espacio interno */
     box-sizing: border-box; /* Incluye padding en el ancho y alto total */
     height: 100%; /* Ocupar todo el espacio vertical */
+    background: seashell;
+    border-radius: 17px;
+    box-sizing: border-box;
 }
 .back p {
     margin: 0; /* Elimina márgenes predeterminados */
@@ -140,7 +151,36 @@ body{
     font-size: 16px; /* Tamaño de la fuente */
 }
 
+button {
+    margin-top: 10px; /* Espacio encima del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+.form-container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  position: absolute;
+  top: 46em;
+  left: 24%;
+  margin-bottom: 5em;
+}
 
+.form-container input {
+    width: 100%; /* Ancho completo del input */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Esquinas redondeadas del input */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    font-size: 16px; /* Tamaño de la fuente */
+}
 
 @media (width <= 1250px) {
     /* body { */
@@ -151,6 +191,7 @@ body{
     }
     .container .card {
         margin-top: 0;
+        height: 750px;
      }
     .container p{
         position: relative;
@@ -158,5 +199,15 @@ body{
     .container p strong{
         position: relative;
         right: 6.3em;
+    }
+
+    .front img{
+        height: 600px;
+    }
+
+    .form-container {
+        margin: 0 auto;
+        position:static;
+        margin-bottom: 5em;
     }
 }
