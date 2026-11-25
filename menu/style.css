@@ -428,6 +428,8 @@ h2 em { font-style: italic; color: var(--gold); }
     border-color 0.4s ease,
     box-shadow 0.4s ease;
   will-change: transform, opacity;
+  touch-action: pan-y;
+  -webkit-touch-callout: none;
 }
 .dish-stage.dragging .dish { transition: transform 0s, opacity 0.3s; }
 .dish img {
@@ -437,6 +439,8 @@ h2 em { font-style: italic; color: var(--gold); }
   height: 100%;
   object-fit: cover;
   filter: saturate(0.92) contrast(1.04);
+  -webkit-user-drag: none;
+  user-select: none;
 }
 .dish::after {
   content: "";

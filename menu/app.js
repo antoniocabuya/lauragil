@@ -182,13 +182,12 @@ dishStage.addEventListener("pointerdown", (e) => {
   dragDX = 0;
   dishStage.classList.add("dragging");
 });
-dishStage.addEventListener("pointermove", (e) => {
+window.addEventListener("pointermove", (e) => {
   if (!dishState.dragging) return;
   const dx = e.clientX - dragX;
   const dy = e.clientY - dragY;
-  if (!dishState.moved && Math.abs(dx) > 7 && Math.abs(dx) > Math.abs(dy)) {
+  if (!dishState.moved && Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) {
     dishState.moved = true;
-    dishStage.setPointerCapture(e.pointerId);
   }
   if (!dishState.moved) return;
   const now = performance.now();
@@ -207,11 +206,9 @@ function endDishDrag(e) {
   if (!dishState.dragging) return;
   dishState.dragging = false;
   dishStage.classList.remove("dragging");
-  if (e && e.pointerId != null && dishStage.hasPointerCapture?.(e.pointerId)) {
-    dishStage.releasePointerCapture(e.pointerId);
-  }
-  const flick = dishState.moved && Math.abs(dragDX) > 26 && Math.abs(velX) > 0.3;
-  const next = flick
+  const slide = dishState.moved && Math.abs(dragDX) > 26;
+  const flick = dishState.moved && Math.abs(dragDX) > 12 && Math.abs(velX) > 0.3;
+  const next = (slide || flick)
     ? dishState.active + (dragDX < 0 ? 1 : -1)
     : Math.round(dishState.active + dishState.drag);
   const changed = dishState.moved && next !== dishState.active;
@@ -221,9 +218,8 @@ function endDishDrag(e) {
   if (changed) navigator.vibrate?.(8);
   setDish(next);
 }
-dishStage.addEventListener("pointerup", endDishDrag);
-dishStage.addEventListener("pointercancel", endDishDrag);
-dishStage.addEventListener("lostpointercapture", endDishDrag);
+window.addEventListener("pointerup", endDishDrag);
+window.addEventListener("pointercancel", endDishDrag);
 
 document.querySelectorAll("[data-party]").forEach((btn) => {
   btn.addEventListener("click", () => {
