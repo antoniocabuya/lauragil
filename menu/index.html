@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mi grado · Laura Sofía Gil Díaz</title>
+  <meta name="description" content="Te invito a celebrar mi grado. Domingo 6 de diciembre de 2026, 6:00 p. m. Santorini Restaurante.">
+  <meta name="theme-color" content="#04060b">
+  <link rel="preload" href="fonts/cormorant-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="wordmark" href="#top">Mi grado <span>·</span> 2026</a>
+    <span class="topdate">06 / 12 / 26</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <svg class="cap" viewBox="0 0 64 44" aria-hidden="true" fill="none" stroke="currentColor"
+           stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 17.5 32 5l28 12.5L32 30 4 17.5Z"/>
+        <path d="M16 23v8.5c0 3.2 7.2 5.5 16 5.5s16-2.3 16-5.5V23"/>
+        <path d="M56 22v12"/>
+        <circle cx="56" cy="37" r="1.6"/>
+      </svg>
+      <p class="eyebrow reveal">Gimnasio Británico Brighton<br>Promoción 2026</p>
+      <h1 class="reveal">Mi grado</h1>
+      <p class="hero-name reveal">Laura Sofía Gil Díaz</p>
+      <span class="hero-rule reveal" aria-hidden="true"></span>
+      <p class="hero-meta reveal">
+        Domingo 6 de diciembre · 6:00 p. m.<br>
+        Santorini Restaurante<br>
+        Cl. 8 Sur #38a 16
+      </p>
+      <a class="hero-cta reveal" href="#menu">Elegir mi plato <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">El menú</p>
+        <h2>Elige <em>tu</em> plato</h2>
+        <p class="lead">Un plato por persona. Puedes repetir el mismo.</p>
+      </div>
+
+      <div class="menu-top" data-reveal>
+        <div class="party">
+          <span class="label">¿Cuántas personas?</span>
+          <div class="stepper" role="group" aria-label="Número de personas">
+            <button type="button" class="step" data-party="-1" aria-label="Quitar una persona">−</button>
+            <output id="party-n" aria-live="polite">1</output>
+            <button type="button" class="step" data-party="1" aria-label="Añadir una persona">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dish-stage" id="dish-stage" tabindex="0" role="region"
+           aria-roledescription="carrusel" aria-label="Platos del menú">
+        <div class="dish-track" id="cards"></div>
+      </div>
+
+      <div class="dish-nav">
+        <button class="nav-arrow" id="prev" type="button" aria-label="Plato anterior">‹</button>
+        <div class="dots" id="dots"></div>
+        <button class="nav-arrow" id="next" type="button" aria-label="Plato siguiente">›</button>
+      </div>
+      <p class="swipe-hint" id="swipe-hint">Desliza o usa las flechas</p>
+
+      <div class="dish-detail" id="dish-detail" aria-live="polite">
+        <p class="dish-desc" id="detail-desc"></p>
+        <div class="pick-row">
+          <span class="pick-label">Cantidad</span>
+          <div class="mini" role="group" aria-label="Cantidad del plato">
+            <button type="button" data-step="-1" aria-label="Quitar uno">−</button>
+            <output id="detail-n">0</output>
+            <button type="button" data-step="1" aria-label="Añadir uno">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dock" id="dock">
+        <div class="dock-info">
+          <p class="dock-count"><span id="dock-n">0</span> / <span id="dock-total">1</span> platos</p>
+          <div class="bar"><i id="dock-bar"></i></div>
+        </div>
+        <button class="dock-btn" id="dock-btn" type="button" disabled>Continuar</button>
+      </div>
+    </section>
+
+    <section class="rsvp" id="rsvp">
+      <div class="rsvp-inner" data-reveal>
+        <p class="eyebrow">Confirma tu lugar</p>
+        <h2>Nos vemos <em>allí</em></h2>
+        <p class="lead">Déjame tu nombre y cualquier alergia o nota. Responde antes del domingo 29 de noviembre.</p>
+
+        <div class="recap" id="recap" aria-live="polite"></div>
+
+        <form id="form" novalidate>
+          <label class="field">
+            <span>Tu nombre</span>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Nombre y apellido" required>
+          </label>
+          <label class="field">
+            <span>Alergias o notas <em>(opcional)</em></span>
+            <input id="notes" name="notes" type="text" placeholder="Ej. sin lactosa, una silla extra…">
+          </label>
+          <button class="submit" id="submit" type="submit">Confirmar asistencia</button>
+          <p class="fineprint" id="form-note">Al confirmar, tu respuesta queda guardada.</p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-title">Santorini Restaurante</p>
+      <p><a href="https://maps.google.com/?q=Cl.+8+Sur+%2338a+16,+Bogot%C3%A1" target="_blank" rel="noopener">Cl. 8 Sur #38a 16</a></p>
+      <p>Domingo 6 de diciembre de 2026 · 6:00 p. m.</p>
+      <p class="footer-school">Gimnasio Británico Brighton · Promoción 2026</p>
+    </footer>
+  </main>
+
+  <div class="thanks" id="thanks" role="dialog" aria-modal="true" aria-labelledby="thanks-title" hidden>
+    <div class="thanks-card">
+      <p class="eyebrow">Confirmado</p>
+      <h2 id="thanks-title">Gracias, <span id="thanks-name"></span></h2>
+      <p class="thanks-lead">Nos vemos el domingo 6 de diciembre, a las 6:00 p. m.</p>
+      <p class="thanks-place">Santorini Restaurante<br>Cl. 8 Sur #38a 16</p>
+      <div class="thanks-summary" id="thanks-summary"></div>
+      <button class="ghost" id="thanks-edit" type="button">Editar respuesta</button>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript">
+      <p>Activa JavaScript para elegir tu menú y confirmar.</p>
+      <p>Los platos son: Stroganoff de lomo, Trucha marinera, Costillas en BBQ de tamarindo, Pollo Shakshuka y Fettuccine con estofado de res.</p>
+    </div>
+  </noscript>
+
+  <script src="app.js"></script>
+</body>
+</html>
