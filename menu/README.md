@@ -12,15 +12,15 @@ Abre `http://localhost:8090`. No necesita `npm` ni compilación.
 
 En el celular, desliza las tarjetas de platos (o usa las flechas) para cambiar de plato. La página está pensada para pantallas táctiles: el deslizamiento sigue el dedo y un gesto rápido avanza; el desplazamiento vertical de la página sigue funcionando.
 
-## Conectar el Google Form (importante)
+## Google Form (ya conectado)
 
-Sin esto la página funciona en **modo demo**: muestra el gracias, pero no guarda nada.
+La página ya envía al Form «MENU GRADO SOFI»; los IDs están en `CONFIG`, en `app.js`. Si algún día lo reemplazas, estos son los pasos:
 
 1. Crea un Form nuevo con estos campos, en este orden:
-   - **Nombre** · respuesta corta · obligatorio
-   - **Personas** · número · obligatorio
-   - **A**, **B**, **C**, **D**, **E** · número · obligatorios (aceptan 0)
-   - **Alergias o notas** · respuesta corta · opcional
+   - **Nombre completo** · respuesta corta
+   - **Número de personas** · respuesta corta numérica
+   - **Stroganoff**, **Trucha**, **Costillas**, **Pollo**, **Fettuccine** · respuesta corta numérica (aceptan 0)
+   - **notas** · párrafo
 2. En el Form: **Respuestas → Vincular a Hojas de cálculo**. Ahí quedan todas las respuestas.
 3. Abre el Form publicado y busca en el código fuente `formResponse` y los `entry.XXXX`. También sirve **⋮ → Obtener enlace pre-rellenado**.
 4. Pega los datos en `app.js`:

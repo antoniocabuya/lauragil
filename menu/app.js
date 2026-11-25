@@ -4,16 +4,16 @@
    Si quedan vacíos, la página funciona en modo demo (no envía nada).
 ------------------------------------------------------------------- */
 const CONFIG = {
-  formAction: "",
+  formAction: "https://docs.google.com/forms/d/e/1FAIpQLSfCh74ZDOYBPxYEbhS65I5JJbvBXruT0xYltud-0w2KhXdD7w/formResponse",
   entries: {
-    name: "",
-    party: "",
-    a: "",
-    b: "",
-    c: "",
-    d: "",
-    e: "",
-    notes: ""
+    name: "entry.728149976",
+    party: "entry.46705483",
+    a: "entry.2107866265",
+    b: "entry.856705692",
+    c: "entry.940314309",
+    d: "entry.467140506",
+    e: "entry.892087970",
+    notes: "entry.163580857"
   }
 };
 
